@@ -1,0 +1,46 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Todo {
+  id: Int!
+  description: String!
+  done: Boolean!
+}
+
+type Query {
+  """Hola mundo es lo que retorna"""
+  hello: String!
+
+  """Es un numero aleatorio del 1 al 100 con decimales"""
+  randomNumber: Float!
+
+  """Es un numero aleatorio entero del 0 a un número especificado"""
+  randomToTen(to: Int): Int!
+  todos(
+    """its done"""
+    status: Boolean
+  ): [Todo!]!
+  todo(id: Int!): Todo!
+}
+
+type Mutation {
+  create(createTodoInput: CreateTodoInput!): Todo!
+  update(updateTodoInput: UpdateTodoInput!): Todo!
+  delete(id: Int!): Boolean!
+}
+
+input CreateTodoInput {
+  """whats need to be done"""
+  description: String!
+}
+
+input UpdateTodoInput {
+  id: Int!
+
+  """whats need to be done"""
+  description: String
+
+  """its done"""
+  done: Boolean
+}
