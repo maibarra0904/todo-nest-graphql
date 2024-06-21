@@ -22,6 +22,8 @@ type Query {
     status: Boolean
   ): [Todo!]!
   todo(id: Int!): Todo!
+  totalTodos: Int!
+  completeTodos: Int!
 }
 
 type Mutation {

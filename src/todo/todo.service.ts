@@ -14,11 +14,21 @@ export class TodoService {
 
     ]
 
+    get totalTodos() {
+        return this.todos.length;
+    }
+
+    get completedTodos() {
+
+        const completed = this.todos.filter(todo => todo?.done === true )
+
+        return completed.length;
+    }
+
     findAll( statusArgs: StatusArgs): Todo[] {
 
         const {status} = statusArgs
 
-        console.log(status)
 
         if(status !== undefined) return this.todos.filter(todo => todo.done === status)
 
